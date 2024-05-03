@@ -41,6 +41,7 @@ const Create = () => {
             const savedTaskData = localStorage.getItem('data');
             if (savedTaskData) {
                 settaskdata(JSON.parse(savedTaskData));
+                console.log( typeof(taskdata[0].id));
             } else {
                 const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
                 if (!response.ok) {
@@ -51,7 +52,9 @@ const Create = () => {
                     id: task.id.toString(),
                     title: task.title,
                     completed: task.completed
-                }));
+                }
+            )
+            );
                
                 settaskdata(tasks);
                 localStorage.setItem('data', JSON.stringify(tasks));
@@ -97,7 +100,7 @@ const Create = () => {
     // Function to add a task
     const addtask = () => {
         const task ={
-            id:taskdata.length+1,
+            id:title.toString(),
             title:title,
            completed: status==='COMPLETED',
            details:details
@@ -128,7 +131,10 @@ const Create = () => {
                     </svg>
                 </div>
             </div>
+            <div className='w-full overflow-hidden'>
             <Task taskdata={taskdata}  deletetask={deletetask} addtask={addtask} settaskdata={settaskdata}/>
+            </div>
+            
             {showForm && (
                 <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
                     <div ref={formRef} className="bg-[#4a5568] p-6 rounded-lg md:w-1/2 w-4/5 ">
