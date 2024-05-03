@@ -3,7 +3,6 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Task = ({ taskdata, deletetask, addtask, settaskdata }) => {
 
-  console.log(taskdata);
 
   const [showtaskip, setshowtaskip] = useState(false);
   const [showicon, setshowicon] = useState(true);

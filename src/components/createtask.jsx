@@ -41,7 +41,6 @@ const Create = () => {
             const savedTaskData = localStorage.getItem('data');
             if (savedTaskData) {
                 settaskdata(JSON.parse(savedTaskData));
-                console.log( typeof(taskdata[0].id));
             } else {
                 const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
                 if (!response.ok) {
